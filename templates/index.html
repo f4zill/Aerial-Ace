@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Skydiving Agency Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap" rel="stylesheet">
+</head>
+<style>
+    html{
+background: #000000;
+background: linear-gradient(156deg, rgba(0, 0, 0, 1) 0%, rgba(76, 142, 161, 1) 60%, rgba(0, 186, 219, 1) 98%);
+    background-color: rgba(0, 0, 0, 0.925);
+     font-family: "Trade Winds", system-ui;
+  font-weight: 400;
+  font-style: normal;
+
+}
+h1{
+    color: rgb(0, 0, 0);
+    text-decoration: 1px solid #79c2cc;
+}
+
+h3{
+    margin-left: 40%;
+}
+body {  margin: 10px;
+	    margin: 0;
+	    background-color:#4c7081;
+	    font-family: "ubuntu", Arial, sans-serif;
+	    overflow-x: hidden;
+	    display: grid;
+        }
+        table {
+            border-collapse: collapse;
+            color:#fff;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid #79c2cc;
+            border-radius: 12px;;
+           background: #ffffff;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-radius: 11px;
+        }
+        h2 {
+            margin-top: 50px;
+            color:#76CBF1;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+            
+        }
+        form {
+            background: #0B162B;
+background: linear-gradient(156deg, rgba(11, 22, 43, 1) 7%, rgba(76, 142, 161, 1) 100%, rgba(0, 186, 219, 1) 98%);
+            padding: 15px;
+            border-radius: 5px;
+            max-width: 500px;
+            max-height: 500px;
+        }
+        form input, form button {
+            padding: 8px;
+            margin: 5px 10px 10px 0;
+        }
+    button{
+        background-color: #0011ff;
+        border-radius: 10px;
+        border: 1px;
+        color:antiquewhite;
+    }
+    input{
+        border-radius: 12px;
+        background-color: rgb(255, 255, 255);
+        border: 1px;
+    }
+    button:hover{
+        background-color: #ff0000;
+    }
+    a {
+	text-decoration: none;
+	color: #9ca0b1;
+}
+
+.wrapper {
+	text-align: center;
+	h1 {
+		color: #fff;
+		font-size: 90px;
+		text-transform: uppercase;
+		font-weight: 700;
+		background: linear-gradient(to right,#4896db 10%, #25abe8 50%, #e1f1f3 60%);
+		background-size: auto auto;
+		background-clip: border-box;
+		background-size: 200% auto;
+		color: #fff;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		animation: textclip 1.5s linear infinite;
+		display:inline;
+        font-family: "Gowun Batang", sans-serif;
+	}
+}
+
+@keyframes textclip {
+	to {
+		background-position: 200% center;
+	}
+}
+.rainy-weather {
+  margin-top: 20%;
+  margin-left:40%;
+  width: 350px;
+  height: 400px;
+  position: relative;
+
+}
+
+.cloud-main {
+  width: 350px;
+  height: 130px;
+  background: #ccc;
+  border-radius: 100em;
+  position: absolute;
+  z-index: 100;
+  top: 50px;
+  box-shadow: 0 3px 5px rgba(0,0,0, 0.3);
+  background: linear-gradient(#F2F2F2 70%, #E5E5E5);
+}
+
+.cloud-center {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  background: #F2F2F2;
+  position: absolute;
+  border-radius: 100em;
+  top: -30px;
+  right: 50px;
+}
+
+.cloud-left {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+  background: #F2F2F2;
+  position: absolute;
+  border-radius: 100em;
+  top: 0;
+  right: 160px;
+}
+
+.droplet {
+  width: 18px;
+  height: 35px;
+  background: radial-gradient(center, farthest-corner,  #A4DDF5, #76CBF1);
+  position: absolute;  
+  border-radius: 10px 10px 10px 10px / 30px 30px 10px 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0, 0.1);
+}
+
+.droplet1, .droplet4 {
+  right: 70px;
+  top: 100px; 
+}
+
+.droplet2, .droplet5 {
+  right: 140px;
+  top: 130px;
+}
+
+.droplet3, .droplet6 {
+  right: 190px;
+  top: 100px;
+}
+
+
+.droplet1, .droplet2, .droplet3 {
+  animation: rain2 linear 1.5s infinite .75s;
+}
+
+.droplet4, .droplet5, .droplet6 {
+  animation: rain linear 1.5s infinite;
+}
+
+
+@keyframes rain {
+  0% {
+    transform: rotate(30deg) translate(0,0);
+    opacity: 1;
+  }
+  
+  90% {
+    transform: rotate(30deg) translate(0, 130px);
+    opacity: 1;
+  }
+  
+  100% {
+    transform: rotate(30deg) translate(0, 140px);
+    opacity: 0;
+  }
+}
+
+@keyframes rain2 {
+  0% {
+    transform: rotate(30deg) translate(0,0);
+    opacity: 1;
+  }
+  
+  90% {
+    transform: rotate(30deg) translate(0, 130px);
+    opacity: 1;
+  }
+  
+  100% {
+    transform: rotate(30deg) translate(0, 140px);
+    opacity: 0;
+  }
+
+}
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  background-color: rgba(73, 71, 71, 0.151);
+  width: 500px;
+  margin: 18%;
+  margin-top: 10%;
+  margin-left: 38%;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgb(255, 255, 255);
+}
+
+/* Add some padding inside the card container */
+
+button{
+    background-color:rgba(39, 37, 37, 0.151);
+    padding: 12px;
+    border-radius: 8px;
+    color: aliceblue;
+}
+button:hover{
+    background-color: antiquewhite;
+    color: rgba(0, 0, 0, 0.692);
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgb(255, 255, 255);
+}
+
+</style>
+<body>    
+    <div class="wrapper">
+	    <h1>Aerial Ace</h1>
+        <div class="rainy-weather">
+        <div class="cloud-main"></div>
+        <div class="cloud-center"></div>
+        <div class="cloud-left"></div>
+        <div class="droplet droplet1"></div>
+        <div class="droplet droplet2"></div>
+        <div class="droplet droplet3"></div>
+        <div class="droplet droplet4"></div>
+        <div class="droplet droplet5"></div>
+        <div class="droplet droplet6"></div>
+        </div>
+    </div>
+    
+    <!-- Clients Table -->
+    <h2 class="wrap">Clients</h2>
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th></tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+            <tr>
+                <td>{{ client[0] }}</td>
+                <td>{{ client[1] }}</td>
+                <td>{{ client[2] }}</td>
+                <td>{{ client[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+        <div class="card">
+            <div class="container">
+                <form method="POST" action="{{ url_for('add_client') }}">
+                    <h3>Add Client</h3>
+                    <input type="text" name="name" placeholder="Name" required />
+                    <input type="email" name="email" placeholder="Email" required />
+                    <input type="text" name="phone" placeholder="Phone" required />
+                    <button type="submit">Add Client</button>
+                </form>
+            </div>
+        </div> 
+    <!-- Instructors Table -->
+    <h2 class="wrap">Instructors</h2>
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Name</th><th>Experience (years)</th></tr>
+        </thead>
+        <tbody>
+            {% for instructor in instructors %}
+            <tr>
+                <td>{{ instructor[0] }}</td>
+                <td>{{ instructor[1] }}</td>
+                <td>{{ instructor[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        <div class="card">
+            <div class="container">
+                <form method="POST" action="{{ url_for('add_instructor') }}">
+                    <h3>Add Instructor</h3>
+                    <input type="text" name="name" placeholder="Name" required />
+                    <input type="number" name="experience" placeholder="Experience (years)" min="0" required />
+                    <button type="submit">Add Instructor</button>
+                </form>
+            </div>
+        </div>
+
+    <!-- Equipments Table -->
+    <h2 class="wrap">Equipments</h2>
+    <table>
+        <thead>
+           <tr><th>ID</th><th>Type</th><th>Status</th></tr>
+
+        </thead>
+        <tbody>
+            {% for equipment in equipments %}
+            <tr>
+                <td>{{ equipment[0] }}</td>
+                <td>{{ equipment[1] }}</td>
+                <td>{{ equipment[2] }}</td>
+                <td>{{ equipment[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        <div class="card">
+            <div class="container">
+                <form method="POST" action="{{ url_for('add_equipment') }}">
+                    <h3>Add Equipment</h3>
+                    <input type="text" name="type" placeholder="Type" required />
+                    <input type="text" name="status" placeholder="Status" required />
+                    <button type="submit">Add Equipment</button>
+                </form>
+            </div>
+        </div>
+    <!-- Bookings Table -->
+    <h2 class="wrap">Bookings</h2>
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Client ID</th><th>Instructor ID</th><th>Equipment ID</th><th>Date</th></tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking[0] }}</td>
+                <td>{{ booking[1] }}</td>
+                <td>{{ booking[2] }}</td>
+                <td>{{ booking[3] }}</td>
+                <td>{{ booking[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        <div class="card">
+            <div class="container">
+                <form method="POST" action="{{ url_for('add_booking') }}">
+                    <h3>Add Booking</h3>
+                    <input type="number" name="client_id" placeholder="Client ID" required />
+                    <input type="number" name="instructor_id" placeholder="Instructor ID" required />
+                    <input type="number" name="equipment_id" placeholder="Equipment ID" required />
+                    <input type="date" name="date" placeholder="Date" required />
+                    <button type="submit">Add Booking</button>
+                </form>
+            </div>
+        </div>
+    <!-- Payments Table -->
+    <h2 class="wrap">Payments</h2>
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Booking ID</th><th>Amount</th><th>Date</th></tr>
+        </thead>
+        <tbody>
+            {% for payment in payments %}
+            <tr>
+                <td>{{ payment[0] }}</td>
+                <td>{{ payment[1] }}</td>
+                <td>{{ payment[2] }}</td>
+                <td>{{ payment[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        <div class="card">
+            <div class="container">
+                <form method="POST" action="{{ url_for('add_payment') }}">
+                    <h3>Add Payment</h3>
+                    <input type="number" name="booking_id" placeholder="Booking ID" required>
+                    <input type="number" name="amount" placeholder="Amount" required>
+                    <input type="date" name="payment_date" required> <!-- ✅ This fixes the KeyError -->
+                    <button type="submit">Add Payment</button>
+                </form>
+            </div>
+        </div>
+    <!-- Jump Logs Table -->
+    <h2 class="wrap">Jump Logs</h2>
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Client ID</th><th>Instructor ID</th><th>Equipment ID</th><th>Jump Date</th></tr>
+        </thead>
+        <tbody>
+            {% for jump_log in jump_logs %}
+            <tr>
+                <td>{{ jump_log[0] }}</td>
+                <td>{{ jump_log[1] }}</td>
+                <td>{{ jump_log[2] }}</td>
+                <td>{{ jump_log[3] }}</td>
+                <td>{{ jump_log[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        <div class="card">
+            <div class="container">
+                <form method="POST" action="{{ url_for('add_jump_log') }}">
+                    <h3>Add Jump Log</h3>
+                    <input type="number" name="client_id" placeholder="Client ID" required />
+                    <input type="number" name="instructor_id" placeholder="Instructor ID" required />
+                    <input type="number" name="equipment_id" placeholder="Equipment ID" required />
+                    <input type="date" name="jump_date" placeholder="Jump Date" required />
+                    <button type="submit">Add Jump Log</button>
+                </form>
+            </div>
+        </div>
+</body>
+</html>
